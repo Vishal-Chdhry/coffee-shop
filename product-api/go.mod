@@ -1,1 +1,1 @@
-module github.com/Vishal-Chdhry/microservices-in-go/product-api
+module github.com/Vishal-Chdhry/coffee-shop/product-api

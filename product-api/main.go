@@ -9,18 +9,13 @@ import (
 	"time"
 
 	"github.com/go-openapi/runtime/middleware"
-	"github.com/nicholasjackson/env"
 
 	"github.com/Vishal-Chdhry/coffee-shop/product-api/data"
 	"github.com/Vishal-Chdhry/coffee-shop/product-api/handlers"
 	"github.com/gorilla/mux"
 )
 
-var bindAddress = env.String("BIND_ADDRESS", false, ":9090", "Bind address for the server")
-
 func main() {
-
-	env.Parse()
 
 	l := log.New(os.Stdout, "products-api ", log.LstdFlags)
 	v := data.NewValidation()
@@ -56,7 +51,7 @@ func main() {
 
 	// create a new server
 	s := http.Server{
-		Addr:         *bindAddress,      // configure the bind address
+		Addr:         ":9090",           // configure the bind address
 		Handler:      sm,                // set the default handler
 		ErrorLog:     l,                 // set the logger for the server
 		ReadTimeout:  5 * time.Second,   // max time to read request from the client
